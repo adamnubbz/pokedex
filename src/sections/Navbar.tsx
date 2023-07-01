@@ -36,7 +36,7 @@ function Navbar() {
   });
 
   function ul(index: number) {
-    const underlines = document.querySelectorAll<HTMLElement>("underline");
+    const underlines = document.querySelectorAll<HTMLElement>(".underline");
     for (let i = 0; i < underlines.length; i++) {
       underlines[i].style.transform = "translate3d(" + index * 100 + "%,0,0)";
     }
