@@ -14,7 +14,10 @@ export const AppSlice = createSlice({
       toasts.push(action.payload);
       state.toasts = toasts;
     },
+    clearToasts: (state) => {
+      state.toasts = [];
+    },
   },
 });
 
-export const {} = AppSlice.actions;
+export const { setToast, clearToasts } = AppSlice.actions;

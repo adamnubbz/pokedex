@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "./sections/Navbar";
 import Wrapper from "./sections/Wrapper";
 import Footer from "./sections/Footer";
@@ -10,8 +10,31 @@ import MyList from "./pages/MyList";
 import About from "./pages/About";
 import Compare from "./pages/Compare";
 import Pokemon from "./pages/Pokemon";
+import { ToastContainer, ToastOptions, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useAppDispatch, useAppSelector } from "./app/hooks";
+import { clearToasts } from "./app/slices/AppSlice";
 
 function App() {
+  const { toasts } = useAppSelector(({ app }) => app);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (toasts.length) {
+      const toastOptions: ToastOptions = {
+        position: "bottom-right",
+        autoClose: 2000,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "dark",
+      };
+      toasts.forEach((message: string) => {
+        toast(message, toastOptions);
+      });
+      dispatch(clearToasts());
+    }
+  }, [toast, dispatch]);
+
   return (
     <div className="main-container">
       <Background />
@@ -26,7 +49,8 @@ function App() {
             <Route element={<Pokemon />} path="/pokemon/:id" />
             <Route element={<Navigate to="/pokemon/1" />} path="*" />
           </Routes>
-          <Footer></Footer>
+          <Footer />
+          <ToastContainer />
         </div>
       </BrowserRouter>
     </div>
