@@ -23,7 +23,7 @@ function App() {
     if (toasts.length) {
       const toastOptions: ToastOptions = {
         position: "bottom-right",
-        autoClose: 2000,
+        autoClose: 200,
         pauseOnHover: true,
         draggable: true,
         theme: "dark",
@@ -40,7 +40,7 @@ function App() {
       <Background />
       <BrowserRouter>
         <div className="app">
-          <Navbar></Navbar>
+          <Navbar />
           <Routes>
             <Route element={<Search />} path="/search" />
             <Route element={<MyList />} path="/list" />

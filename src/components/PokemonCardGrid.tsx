@@ -35,7 +35,7 @@ function PokemonCardGrid({ pokemons }: { pokemons: userPokemonsType[] }) {
                       dispatch(
                         setToast(`${data.name} has been added to Compare`)
                       );
-                      console.log("el psy");
+                      console.log("el psycrow");
                     }}
                   />
                 </div>
