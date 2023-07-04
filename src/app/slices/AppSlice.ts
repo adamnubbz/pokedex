@@ -3,6 +3,9 @@ import { AppTypeInitialState } from "../../utils/Types";
 
 const initialState: AppTypeInitialState = {
   toasts: [],
+  userInfo: undefined,
+  //currentPokemonTab: pokemonTabs.description,
+  //isLoading: true,
 };
 
 export const AppSlice = createSlice({
@@ -17,7 +20,10 @@ export const AppSlice = createSlice({
     clearToasts: (state) => {
       state.toasts = [];
     },
+    setUserStatus: (state, action) => {
+      state.userInfo = action.payload;
+    },
   },
 });
 
-export const { setToast, clearToasts } = AppSlice.actions;
+export const { setToast, clearToasts, setUserStatus } = AppSlice.actions;
