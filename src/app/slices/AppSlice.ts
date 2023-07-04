@@ -20,7 +20,10 @@ export const AppSlice = createSlice({
     clearToasts: (state) => {
       state.toasts = [];
     },
-    setUserStatus: (state, action) => {
+    setUserStatus: (
+      state,
+      action: PayloadAction<{ email: string } | undefined>
+    ) => {
       state.userInfo = action.payload;
     },
   },
