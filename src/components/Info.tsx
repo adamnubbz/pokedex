@@ -57,38 +57,40 @@ export default function Info({
           <ul>
             <li>
               <span>Strengths:</span>
-              {/* <span>
-                {createStatsArray(
-                  data?.types as unknown as string[],
-                  "strength"
-                ).join(", ")}
-              </span> */}
+              {
+                <span>
+                  {createStatsArray(
+                    data?.types as unknown as string[],
+                    "strength"
+                  ).join(", ")}
+                </span>
+              }
             </li>
             <li>
               <span>Weakness:</span>
               <span>
-                {/* createStatsArray(
+                {createStatsArray(
                   data?.types as unknown as string[],
                   "weakness"
-                ).join(", ") */}
+                ).join(", ")}
               </span>
             </li>
             <li>
               <span>Resistant:</span>
               <span>
-                {/* createStatsArray(
+                {createStatsArray(
                   data?.types as unknown as string[],
                   "resistance"
-                ).join(", ") */}
+                ).join(", ")}
               </span>
             </li>
             <li>
               <span>Vulnerable:</span>
               <span>
-                {/* createStatsArray(
+                {createStatsArray(
                   data?.types as unknown as string[],
                   "vulnerable"
-                ).join(", ") */}
+                ).join(", ")}
               </span>
             </li>
           </ul>

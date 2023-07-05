@@ -1,11 +1,22 @@
-.details {
+.battle-stats {
+  ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    letter-spacing: 0.1rem;
+    li {
+      display: grid;
+      grid-template-columns: max-content 80%;
+      gap: 0.5rem;
+    }
+  }
   position: absolute;
-  top: 1rem;
-  left: 1rem;
+  bottom: 3rem;
+  right: 2rem;
   color: white;
   padding: 1rem;
-  width: 25rem;
-  text-transform: uppercase;
+  width: 30rem;
   &::before {
     height: 0.3rem;
     width: 9rem;
@@ -18,11 +29,10 @@
   .name {
     margin-bottom: 1rem;
   }
-  button {
+  .add-pokemon {
     position: absolute;
-    right: 1rem;
+    right: -1rem;
     bottom: -2rem;
-
     padding: 0.8rem 0.8rem;
     background-color: transparent;
     border: 0.1rem solid var(--accent-color);
@@ -31,6 +41,11 @@
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 0.1rem;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    &:hover {
+      background-color: var(--accent-color);
+    }
   }
   background: linear-gradient(
         $bg-color ($dot-space - $dot-size),

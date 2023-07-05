@@ -12,7 +12,7 @@ function About() {
         On the shoulders of giants, I made this awesome pokedex!
       </h2>
       <h4 className="profile-text">
-        React Guide by Kishan Sheth, check out the video below!
+        React Guide by Kishan Sheth, check out his video below
       </h4>
       <div className="profile-links">
         <a href="https://github.com/adamnubbz" target="_blank">

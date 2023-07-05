@@ -1,5 +1,5 @@
 // Pokemon.tsx
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useCallback, useState } from "react";
 import Wrapper from "../sections/Wrapper";
 import { useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
@@ -17,12 +17,16 @@ import CapableMoves from "./Pokemon/CapableMoves";
 import Locations from "./Pokemon/Locations";
 import Description from "./Pokemon/Description";
 import Evolution from "./Pokemon/Evolution";
+import Loader from "../components/Loader";
 
 function Pokemon() {
   const params = useParams();
   const dispatch = useAppDispatch();
   const currentPokemonTab = useAppSelector(
     ({ app: { currentPokemonTab } }) => currentPokemonTab
+  );
+  const currentPokemon = useAppSelector(
+    ({ pokemon: { currentPokemon } }) => currentPokemon
   );
 
   useEffect(() => {
@@ -68,6 +72,7 @@ function Pokemon() {
     [getRecursiveEvolution]
   );
 
+  const [isDataLoading, setIsDataLoading] = useState(true);
   const getPokemonInfo = useCallback(
     async (image: string) => {
       const { data } = await axios.get(`${pokemonRoute}/${params.id}`);
@@ -126,6 +131,7 @@ function Pokemon() {
           pokemonAbilities,
         })
       );
+      setIsDataLoading(false);
     },
     [getEvolutionData, params.id, dispatch]
   );
@@ -162,18 +168,16 @@ function Pokemon() {
 
   return (
     <>
-      {
-        //!isDataLoading && currentPokemon ? (
+      {!isDataLoading && currentPokemon ? (
         <>
           {currentPokemonTab === pokemonTabs.description && <Description />}
           {currentPokemonTab === pokemonTabs.evolution && <Evolution />}
           {currentPokemonTab === pokemonTabs.locations && <Locations />}
           {currentPokemonTab === pokemonTabs.moves && <CapableMoves />}
         </>
-        /*) : (
+      ) : (
         <Loader />
-      )*/
-      }
+      )}
     </>
   );
 }

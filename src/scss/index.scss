@@ -1,9 +1,5 @@
-@import "utils/";
+@import "utils";
 @import "base";
-@import "components/";
-@import "sections/";
-@import "pages/";
-
-body {
-    
-}
+@import "components";
+@import "sections";
+@import "pages";
