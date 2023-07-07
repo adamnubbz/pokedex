@@ -18,11 +18,11 @@ function Search() {
 
   useEffect(() => {
     if (allPokemon) {
-      const clonedPokemons = [...allPokemon];
+      /*const clonedPokemons = [...allPokemon];
       const randomPokemonsId = clonedPokemons
         .sort(() => Math.random() - Math.random())
-        .slice(0, 20);
-      dispatch(getPokemonData(randomPokemonsId));
+        .slice(0, 20);*/
+      dispatch(getPokemonData(allPokemon));
     }
   }, [allPokemon, dispatch]);
 
@@ -35,11 +35,12 @@ function Search() {
       );
       dispatch(getPokemonData(pokemons!));
     } else {
-      const clonedPokemons = [...(allPokemon as [])];
+      /* const clonedPokemons = [...(allPokemon as [])];
       const randomPokemonsId = clonedPokemons
         .sort(() => Math.random() - Math.random())
         .slice(0, 20);
-      dispatch(getPokemonData(randomPokemonsId));
+      dispatch(getPokemonData(randomPokemonsId)); */
+      dispatch(getPokemonData(allPokemon!));
     }
   };
 
