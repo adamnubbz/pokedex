@@ -7,12 +7,12 @@ function About() {
   return (
     <div className="profile">
       <img src={avatarImage} alt="" className="profile-image" />
-      <h1 className="profile-text">Hello, I am Adam Hudson</h1>
+      <h1 className="profile-text">Hi, I'm Adam Hudson!</h1>
       <h2 className="profile-text">
-        On the shoulders of giants, I made this awesome pokedex!
+        On the shoulders of giants, I made this awesome pokedex
       </h2>
       <h4 className="profile-text">
-        React Guide by Kishan Sheth, check out his video below
+        Guide by Kishan Sheth, check out his video below!
       </h4>
       <div className="profile-links">
         <a href="https://github.com/adamnubbz" target="_blank">
